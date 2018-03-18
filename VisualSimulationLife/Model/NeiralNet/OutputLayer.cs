@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LifeSimulation_ConsoleVersion.NeuroBrainBor {
+namespace LifeSimulation.Model.NeiralNet {
 	/// <summary>
 	/// Класс выходного слоя нейросети
 	/// </summary>
@@ -23,13 +23,11 @@ namespace LifeSimulation_ConsoleVersion.NeuroBrainBor {
 		public string OutputDate() {
 			string HashOutstr = new string("".ToCharArray());
 			for (int j = 0; j < m; j++) {
-				//Console.WriteLine(Matrix[ 0, j ]);
 				if (Matrix[ 0, j ] >= 0.55)
 					HashOutstr += "1|";
 				else
 					HashOutstr += "0|";
 			}
-			Console.WriteLine(HashOutstr);
 			return HashOutstr;
 		}
 		///<summary>

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3D6D85AE-81E7-4377-8991-E21B0C4B061B}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>VisualSimulationLife</RootNamespace>
     <AssemblyName>VisualSimulationLife</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -51,6 +51,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,9 +73,9 @@
     <Compile Include="Model\NeiralNet\HiddenLayer.cs" />
     <Compile Include="Model\NeiralNet\InputLayer.cs" />
     <Compile Include="Model\NeiralNet\Matrix.cs" />
-    <Compile Include="Model\ElBot\MoveTo.cs" />
     <Compile Include="Model\NeiralNet\OutputLayer.cs" />
     <Compile Include="Model\NeiralNet\SynapseLayer.cs" />
+    <Compile Include="Present\ConsoleDebugging.cs" />
     <Compile Include="Present\WebCenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

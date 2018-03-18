@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using LifeSimulation_ConsoleVersion.LifeSimulation;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Text.RegularExpressions;
+using LifeSimulation.Present;
 
-namespace VisualSimulationLife {
+namespace LifeSimulation.Visual {
 	public partial class MainForm : Form {
 		/// <summary>
 		/// Блок управления логикой программы
@@ -40,13 +40,17 @@ namespace VisualSimulationLife {
 		bool DinamicChoiseBool;
 		bool StatistChoiseBool;
 		/// <summary>
+		/// Отладочная консоль
+		/// </summary>
+		Present.ConsoleDebugging Debugging;
+		/// <summary>
 		/// Конструктор с полученным параметром начального выбора
 		/// </summary>
 		/// <param name="PacComponets"></param>
-		public MainForm(OutFirstForm PacComponets) {
+		public MainForm(OutFirstForm PacComponets,Present.ConsoleDebugging ConsoleDebugging) {
 			this.DoubleBuffered = true;
 			InitializeComponent();
-			MainBloc = new WebCenter(PacComponets.FileNameBrain, PacComponets.NumberBotInt, PacComponets.DinamicChoiseBool);
+			MainBloc = new WebCenter(PacComponets.FileNameBrain, PacComponets.NumberBotInt, PacComponets.DinamicChoiseBool,PacComponets.LearningFactor);
 			DinamicChoiseBool = PacComponets.DinamicChoiseBool;
 			FirstBmp = new Bitmap(Field_One.Width, Field_One.Height);
 			SecondBmp = new Bitmap(Field_Two.Width, Field_Two.Height);
@@ -67,22 +71,35 @@ namespace VisualSimulationLife {
 			SimplisticStyle = false;
 			HelpMessage.Visible = false;
 			StatistChoiseBool = false;
+			ConsoleBox.CheckedChanged += ConsoleBox_AppearanceChanged;
+			Debugging = ConsoleDebugging;
+		}
+		/// <summary>
+		/// Открытие/закрытие консоли
+		/// </summary>
+		private void ConsoleBox_AppearanceChanged(object sender, EventArgs e) {
+			if (Debugging.SHOW)
+				Debugging.ClouseWindow();
+			else {
+				Console.Clear();
+				Debugging.ShowWindow();
+			}
 		}
 		/// <summary>
 		/// Перерисовка главного поля
 		/// </summary>
 		private void DrawFieldOne() {
-			for (int i = 0; i < MainBloc.MainField.N; i++)
-				for (int j = 0; j < MainBloc.MainField.N; j++) {
-					if (MainBloc.MainField[ j, i ].CHANGES == true) {
-						if (MainBloc.MainField[ j, i ].CheckBotPlace) 
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+					if (MainBloc.MAIN_FIELD[ j, i ].CHANGES == true) {
+						if (MainBloc.MAIN_FIELD[ j, i ].CheckBotPlace) 
 							BoxOne(i, j, GreenBrush);
 						else
-							if (MainBloc.MainField[ j, i ].PLACE_ORGANIC_MATTER)
+							if (MainBloc.MAIN_FIELD[ j, i ].PLACE_ORGANIC_MATTER)
 							BoxOne(i, j, Brushes.LightGreen);
 						else
 							BoxOne(i, j, OldLace);
-						MainBloc.MainField[ j, i ].CHANGES = false;
+						MainBloc.MAIN_FIELD[ j, i ].CHANGES = false;
 					}
 				}
 		}
@@ -142,18 +159,18 @@ namespace VisualSimulationLife {
 		/// Рисовка границ 
 		/// </summary>
 		private void DrawFieldTwo() {
-			for (int i = 0; i < MainBloc.MainField.N; i++)
-				for (int j = 0; j < MainBloc.MainField.N; j++) {
-					BoxTwo(i, j, new SolidBrush(ColorForLight(MainBloc.MainField[ j, i ].PLACE_LIGHT)));
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+					BoxTwo(i, j, new SolidBrush(ColorForLight(MainBloc.MAIN_FIELD[ j, i ].PLACE_LIGHT)));
 				}
 		}
 		/// <summary>
 		/// Рисовка границ 
 		/// </summary>
 		private void DrawFieldTherd() {
-			for (int i = 0; i < MainBloc.MainField.N; i++)
-				for (int j = 0; j < MainBloc.MainField.N; j++) {
-					BoxTherd(i, j, new SolidBrush(ColorForCold(MainBloc.MainField[ j, i ].PLACE_TEMP)));
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+					BoxTherd(i, j, new SolidBrush(ColorForCold(MainBloc.MAIN_FIELD[ j, i ].PLACE_TEMP)));
 				}
 		}
 		/// <summary>
@@ -250,8 +267,8 @@ namespace VisualSimulationLife {
 		private void Startbutton_Click_1(object sender, EventArgs e) {
 			try {
 				if (DinamicChoiseBool) {
-					MainBloc.MainField.DinamicFieldTemp();
-					MainBloc.MainField.DinamicOrganic();
+					MainBloc.MAIN_FIELD.DinamicFieldTemp();
+					MainBloc.MAIN_FIELD.DinamicOrganic();
 				}
 				int Limit = 500;
 				if (SimplisticStyle == true) {
@@ -272,8 +289,8 @@ namespace VisualSimulationLife {
 				}
 				Startbutton.Text = "Продолжить";
 			}
-			catch {
-				MessageBox.Show("Ошибка введеных данных", "Ошибка");
+			catch(Exception error) {
+				MessageBox.Show(error.Message, "Ошибка");
 				return;
 			}
 		}
@@ -283,10 +300,10 @@ namespace VisualSimulationLife {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LeaveSave_Click(object sender, EventArgs e) {
-			for (int i = 0;i< MainBloc.MainField.N;i++) {
-				for (int j = 0; j < MainBloc.MainField.N; j++) {
-					if (MainBloc.MainField[ i, j ].CheckBotPlace) {
-						MainBloc.SaveBrain(MainBloc.MainField[ i, j ].PLACE_BOT);
+			for (int i = 0;i< MainBloc.MAIN_FIELD.N;i++) {
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+					if (MainBloc.MAIN_FIELD[ i, j ].CheckBotPlace) {
+						MainBloc.SaveBrain(MainBloc.MAIN_FIELD[ i, j ].PLACE_BOT);
 						return;
 					}
 				}
@@ -408,6 +425,10 @@ namespace VisualSimulationLife {
 
 		}
 		private void PictureBoxTemp_Click(object sender, EventArgs e) {
+
+		}
+
+		private void ConsoleBox_CheckedChanged(object sender, EventArgs e) {
 
 		}
 		#endregion

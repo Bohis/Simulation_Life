@@ -1,4 +1,4 @@
-﻿namespace LifeSimulation_ConsoleVersion.NeuroBrainBor {
+﻿namespace LifeSimulation.Model.NeiralNet {
 	/// <summary>
 	/// Класс перцетрона 
 	/// </summary>

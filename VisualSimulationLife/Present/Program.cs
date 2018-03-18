@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LifeSimulation.Visual;
 
-namespace VisualSimulationLife {
+namespace LifeSimulation.Present {
 	/// <summary>
 	/// Структура передачи информации
 	/// </summary>
@@ -20,6 +18,8 @@ namespace VisualSimulationLife {
 		/// </summary>
 		[STAThread]
 		static void Main() {
+			Present.ConsoleDebugging ConsoleControl = new Present.ConsoleDebugging();
+			ConsoleControl.ClouseWindow();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			//Экран загрузки с таймером
@@ -39,10 +39,10 @@ namespace VisualSimulationLife {
 			};
 			MenuForm FirstApp = new MenuForm(ForFirtsApp);
 			Application.Run(FirstApp);
-			ForFirtsApp = FirstApp.OutData;
+			ForFirtsApp = FirstApp.OUT_DATA;
 			FirstApp.Dispose();
 			//Главная форма
-			MainForm SecondApp = new MainForm(ForFirtsApp);
+			MainForm SecondApp = new MainForm(ForFirtsApp,ConsoleControl);
 			Application.Run(SecondApp);
 			SecondApp.Dispose();
 		}

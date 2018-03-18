@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LifeSimulation_ConsoleVersion.NeuroBrainBor {
+﻿namespace LifeSimulation.Model.NeiralNet{
 	///<sumarry>
 	/// Абстрактный класс для компонетов нейронной сети
 	///</sumarry>

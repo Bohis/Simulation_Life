@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace VisualSimulationLife{
+namespace LifeSimulation.Visual{
 	/// <summary>
 	/// Загрузочный экран
 	/// </summary>

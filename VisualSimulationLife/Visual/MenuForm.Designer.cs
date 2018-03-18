@@ -1,4 +1,4 @@
-﻿namespace VisualSimulationLife {
+﻿namespace LifeSimulation.Visual {
 	partial class MenuForm {
 		/// <summary>
 		/// Required designer variable.
@@ -37,18 +37,18 @@
 			this.DinamicChose = new System.Windows.Forms.CheckBox();
 			this.ChoiseFile = new System.Windows.Forms.Button();
 			this.Menu = new System.Windows.Forms.Panel();
-			((System.ComponentModel.ISupportInitialize)(this.NumberBot)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.CoefficientTrainig)).BeginInit();
+			( (System.ComponentModel.ISupportInitialize)( this.NumberBot ) ).BeginInit();
+			( (System.ComponentModel.ISupportInitialize)( this.CoefficientTrainig ) ).BeginInit();
 			this.Menu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// DescriptionProgram
 			// 
-			this.DescriptionProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.DescriptionProgram.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
+			| System.Windows.Forms.AnchorStyles.Left )
+			| System.Windows.Forms.AnchorStyles.Right ) ) );
 			this.DescriptionProgram.AutoSize = true;
-			this.DescriptionProgram.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.DescriptionProgram.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.DescriptionProgram.ForeColor = System.Drawing.Color.Black;
 			this.DescriptionProgram.Location = new System.Drawing.Point(277, 9);
 			this.DescriptionProgram.Name = "DescriptionProgram";
@@ -68,7 +68,7 @@
 			// TextFile
 			// 
 			this.TextFile.AutoSize = true;
-			this.TextFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.TextFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.TextFile.ForeColor = System.Drawing.Color.Black;
 			this.TextFile.Location = new System.Drawing.Point(3, 39);
 			this.TextFile.Name = "TextFile";
@@ -79,7 +79,7 @@
 			// 
 			// EnterFile
 			// 
-			this.EnterFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.EnterFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.EnterFile.ForeColor = System.Drawing.Color.Black;
 			this.EnterFile.Location = new System.Drawing.Point(1033, 35);
 			this.EnterFile.Name = "EnterFile";
@@ -92,7 +92,7 @@
 			// NumberBotText
 			// 
 			this.NumberBotText.AutoSize = true;
-			this.NumberBotText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NumberBotText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.NumberBotText.ForeColor = System.Drawing.Color.Black;
 			this.NumberBotText.Location = new System.Drawing.Point(3, 126);
 			this.NumberBotText.Name = "NumberBotText";
@@ -103,7 +103,7 @@
 			// 
 			// NumberBot
 			// 
-			this.NumberBot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NumberBot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.NumberBot.ForeColor = System.Drawing.Color.Black;
 			this.NumberBot.Location = new System.Drawing.Point(278, 117);
 			this.NumberBot.Name = "NumberBot";
@@ -113,7 +113,7 @@
 			// 
 			// CoefficientTrainig
 			// 
-			this.CoefficientTrainig.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CoefficientTrainig.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.CoefficientTrainig.ForeColor = System.Drawing.Color.Black;
 			this.CoefficientTrainig.Location = new System.Drawing.Point(278, 192);
 			this.CoefficientTrainig.Name = "CoefficientTrainig";
@@ -124,7 +124,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.label3.ForeColor = System.Drawing.Color.Black;
 			this.label3.Location = new System.Drawing.Point(3, 200);
 			this.label3.Name = "label3";
@@ -135,7 +135,7 @@
 			// 
 			// START
 			// 
-			this.START.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.START.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.START.ForeColor = System.Drawing.Color.Black;
 			this.START.Location = new System.Drawing.Point(855, 220);
 			this.START.Name = "START";
@@ -148,7 +148,7 @@
 			// DinamicChoise
 			// 
 			this.DinamicChoise.AutoSize = true;
-			this.DinamicChoise.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.DinamicChoise.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.DinamicChoise.ForeColor = System.Drawing.Color.Black;
 			this.DinamicChoise.Location = new System.Drawing.Point(3, 250);
 			this.DinamicChoise.Name = "DinamicChoise";
@@ -160,7 +160,7 @@
 			// DinamicChose
 			// 
 			this.DinamicChose.AutoSize = true;
-			this.DinamicChose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.DinamicChose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.DinamicChose.ForeColor = System.Drawing.Color.Black;
 			this.DinamicChose.Location = new System.Drawing.Point(278, 246);
 			this.DinamicChose.Name = "DinamicChose";
@@ -172,7 +172,7 @@
 			// 
 			// ChoiseFile
 			// 
-			this.ChoiseFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChoiseFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.ChoiseFile.ForeColor = System.Drawing.Color.Black;
 			this.ChoiseFile.Location = new System.Drawing.Point(855, 35);
 			this.ChoiseFile.Name = "ChoiseFile";
@@ -210,14 +210,14 @@
 			this.Controls.Add(this.Menu);
 			this.Controls.Add(this.DescriptionProgram);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Icon = ( (System.Drawing.Icon)( resources.GetObject("$this.Icon") ) );
 			this.Name = "MenuForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Настройка симуляции";
 			this.TopMost = true;
 			this.Load += new System.EventHandler(this.MenuForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.NumberBot)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.CoefficientTrainig)).EndInit();
+			( (System.ComponentModel.ISupportInitialize)( this.NumberBot ) ).EndInit();
+			( (System.ComponentModel.ISupportInitialize)( this.CoefficientTrainig ) ).EndInit();
 			this.Menu.ResumeLayout(false);
 			this.Menu.PerformLayout();
 			this.ResumeLayout(false);
@@ -239,6 +239,6 @@
 		private System.Windows.Forms.Label DinamicChoise;
 		private System.Windows.Forms.CheckBox DinamicChose;
 		private System.Windows.Forms.Button ChoiseFile;
-		public System.Windows.Forms.Panel Menu;
+		new public System.Windows.Forms.Panel Menu;
 	}
 }

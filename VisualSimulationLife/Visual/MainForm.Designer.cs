@@ -1,4 +1,4 @@
-﻿namespace VisualSimulationLife {
+﻿namespace LifeSimulation.Visual {
 	partial class MainForm {
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -43,16 +43,17 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.ProgressBar = new System.Windows.Forms.ProgressBar();
 			this.StatisticsMenu = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.Field_Two)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.Field_One)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.Field_Therd)).BeginInit();
+			this.ConsoleBox = new System.Windows.Forms.CheckBox();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_Two ) ).BeginInit();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_One ) ).BeginInit();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_Therd ) ).BeginInit();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// NumberIterText
 			// 
 			this.NumberIterText.AutoSize = true;
-			this.NumberIterText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NumberIterText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.NumberIterText.ForeColor = System.Drawing.Color.Black;
 			this.NumberIterText.Location = new System.Drawing.Point(3, 7);
 			this.NumberIterText.Name = "NumberIterText";
@@ -62,7 +63,7 @@
 			// 
 			// Startbutton
 			// 
-			this.Startbutton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.Startbutton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.Startbutton.ForeColor = System.Drawing.Color.Black;
 			this.Startbutton.Location = new System.Drawing.Point(0, 35);
 			this.Startbutton.Name = "Startbutton";
@@ -74,7 +75,7 @@
 			// 
 			// LeaveNotSave
 			// 
-			this.LeaveNotSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.LeaveNotSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.LeaveNotSave.ForeColor = System.Drawing.Color.Black;
 			this.LeaveNotSave.Location = new System.Drawing.Point(380, 168);
 			this.LeaveNotSave.Name = "LeaveNotSave";
@@ -87,7 +88,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.label4.ForeColor = System.Drawing.Color.Black;
 			this.label4.Location = new System.Drawing.Point(263, 7);
 			this.label4.Name = "label4";
@@ -98,7 +99,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.label3.ForeColor = System.Drawing.Color.Black;
 			this.label3.Location = new System.Drawing.Point(374, 260);
 			this.label3.Name = "label3";
@@ -108,7 +109,7 @@
 			// 
 			// LeaveSave
 			// 
-			this.LeaveSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.LeaveSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.LeaveSave.ForeColor = System.Drawing.Color.Black;
 			this.LeaveSave.Location = new System.Drawing.Point(0, 115);
 			this.LeaveSave.Name = "LeaveSave";
@@ -120,7 +121,7 @@
 			// 
 			// CountIter
 			// 
-			this.CountIter.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CountIter.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.CountIter.Location = new System.Drawing.Point(191, 7);
 			this.CountIter.Name = "CountIter";
 			this.CountIter.Size = new System.Drawing.Size(88, 22);
@@ -130,7 +131,7 @@
 			// TextForCount
 			// 
 			this.TextForCount.AutoSize = true;
-			this.TextForCount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.TextForCount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.TextForCount.ForeColor = System.Drawing.Color.Black;
 			this.TextForCount.Location = new System.Drawing.Point(3, 87);
 			this.TextForCount.Name = "TextForCount";
@@ -140,7 +141,7 @@
 			// 
 			// CountFor
 			// 
-			this.CountFor.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CountFor.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.CountFor.Location = new System.Drawing.Point(278, 87);
 			this.CountFor.Name = "CountFor";
 			this.CountFor.Size = new System.Drawing.Size(77, 22);
@@ -183,7 +184,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.label1.ForeColor = System.Drawing.Color.Black;
 			this.label1.Location = new System.Drawing.Point(1, 260);
 			this.label1.Name = "label1";
@@ -195,7 +196,7 @@
 			// SimplePresent
 			// 
 			this.SimplePresent.AutoSize = true;
-			this.SimplePresent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.SimplePresent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.SimplePresent.ForeColor = System.Drawing.Color.Black;
 			this.SimplePresent.Location = new System.Drawing.Point(380, 3);
 			this.SimplePresent.Name = "SimplePresent";
@@ -208,7 +209,7 @@
 			// HelpMessage
 			// 
 			this.HelpMessage.AutoSize = true;
-			this.HelpMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.HelpMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.HelpMessage.ForeColor = System.Drawing.Color.Black;
 			this.HelpMessage.Location = new System.Drawing.Point(381, 87);
 			this.HelpMessage.Name = "HelpMessage";
@@ -219,7 +220,7 @@
 			// StatistChoise
 			// 
 			this.StatistChoise.AutoSize = true;
-			this.StatistChoise.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.StatistChoise.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.StatistChoise.ForeColor = System.Drawing.Color.Black;
 			this.StatistChoise.Location = new System.Drawing.Point(380, 32);
 			this.StatistChoise.Name = "StatistChoise";
@@ -231,6 +232,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.ConsoleBox);
 			this.panel1.Controls.Add(this.ProgressBar);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Controls.Add(this.label3);
@@ -262,7 +264,7 @@
 			// 
 			// StatisticsMenu
 			// 
-			this.StatisticsMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.StatisticsMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
 			this.StatisticsMenu.ForeColor = System.Drawing.Color.Black;
 			this.StatisticsMenu.Location = new System.Drawing.Point(0, 168);
 			this.StatisticsMenu.Name = "StatisticsMenu";
@@ -271,6 +273,19 @@
 			this.StatisticsMenu.Text = "Программа обработки статистики";
 			this.StatisticsMenu.UseVisualStyleBackColor = true;
 			this.StatisticsMenu.Click += new System.EventHandler(this.BackMenu_Click);
+			// 
+			// ConsoleBox
+			// 
+			this.ConsoleBox.AutoSize = true;
+			this.ConsoleBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( (byte)( 204 ) ));
+			this.ConsoleBox.ForeColor = System.Drawing.Color.Black;
+			this.ConsoleBox.Location = new System.Drawing.Point(380, 139);
+			this.ConsoleBox.Name = "ConsoleBox";
+			this.ConsoleBox.Size = new System.Drawing.Size(140, 23);
+			this.ConsoleBox.TabIndex = 35;
+			this.ConsoleBox.Text = "Режим отладки";
+			this.ConsoleBox.UseVisualStyleBackColor = true;
+			this.ConsoleBox.CheckedChanged += new System.EventHandler(this.ConsoleBox_CheckedChanged);
 			// 
 			// MainForm
 			// 
@@ -283,14 +298,14 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.Field_One);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Icon = ( (System.Drawing.Icon)( resources.GetObject("$this.Icon") ) );
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Окно Симуляции";
 			this.Load += new System.EventHandler(this.MainForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.Field_Two)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.Field_One)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.Field_Therd)).EndInit();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_Two ) ).EndInit();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_One ) ).EndInit();
+			( (System.ComponentModel.ISupportInitialize)( this.Field_Therd ) ).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -319,6 +334,7 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button StatisticsMenu;
 		private System.Windows.Forms.ProgressBar ProgressBar;
+		private System.Windows.Forms.CheckBox ConsoleBox;
 	}
 }
 

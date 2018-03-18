@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections;
+using LifeSimulation.Model.ElBot;
 
-namespace LifeSimulation_ConsoleVersion.LifeSimulation {
+namespace LifeSimulation.Model.FieldName{
 	///<summary>
 	///Класс организующий работу с полем из Square
 	///</summary>
@@ -115,8 +116,6 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 				MatrixBot[ i, j ].PLACE_BOT = bot;
 				MatrixBot[ i, j ].CHANGES = true;
 			}
-			else
-				Console.WriteLine("\n\tERROR: место [{0},{1}] занято", i, j);
 		}
         /// <summary>
         /// Очистить ячейку с ботом от бота

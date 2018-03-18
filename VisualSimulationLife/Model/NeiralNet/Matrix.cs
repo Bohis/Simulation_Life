@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LifeSimulation_ConsoleVersion.NeuroBrainBor {
+namespace LifeSimulation.Model.NeiralNet {
 	/// <summary>
 	/// Класс с методом умнжения матриц
 	/// </summary>

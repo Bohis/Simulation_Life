@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LifeSimulation_ConsoleVersion.LifeSimulation{
+﻿using LifeSimulation.Model.ElBot;
+namespace LifeSimulation.Model{
 	/// <summary>
 	/// Класс представляющий клетку поля, методы для работы с ней
 	/// </summary>

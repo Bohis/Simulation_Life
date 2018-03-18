@@ -1,25 +1,33 @@
 ﻿using System;
 using System.IO;
 using System.Collections;
-using LifeSimulation_ConsoleVersion.NeuroBrainBor;
+using LifeSimulation.Model.ElBot;
+using LifeSimulation.Model.FieldName;
+using LifeSimulation.Model.NeiralNet;
 using System.Windows.Forms;
 
-namespace LifeSimulation_ConsoleVersion.LifeSimulation {
+namespace LifeSimulation.Present {
 	/// <summary>
 	/// Управление логикой программы
 	/// </summary>
 	class WebCenter {
-		public Field MainField;
+		/// <summary>
+		/// Поле где существуют боты
+		/// </summary>
+		Field MainField;
+		/// <summary>
+		/// Число просчетов
+		/// </summary>
 		int Count;
+		/// <summary>
+		/// Бот умерший в середине просчета,необобходим для защиты от вырождениея при использованиии ген. алгоритмов 
+		/// </summary>
+		Bot MeanDead;
 		/// <summary>
 		/// Имена файлов
 		/// </summary>
 		string FileNameToSave;
 		string FileNameToStatist;
-		/// <summary>
-		/// Движение ботов
-		/// </summary>
-		MoveTo WorkBot;
 		/// <summary>
 		/// Число спавна ботов
 		/// </summary>
@@ -31,7 +39,7 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 		/// <param name="NumberBot"></param>
 		/// <param name="DinamicChoiseBool"></param>
 		/// <param name="FileNameToStatist"></param>
-		public WebCenter(string FileNameToSave,int NumberBot = 10,bool DinamicChoiseBool = false, string FileNameToStatist = null){
+		public WebCenter(string FileNameToSave,int NumberBot = 10,bool DinamicChoiseBool = false,int CoofTraining = 3,string FileNameToStatist = null){
 
 			Random ForNameFile = new Random();
 
@@ -39,17 +47,16 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 				this.FileNameToStatist = @"Static" + DateTime.Today.Year.ToString() + "." + DateTime.Today.Month.ToString() + "." + DateTime.Today.Day.ToString() + "." + ForNameFile.Next(0,1000).ToString() + "_" + @".txt";
 			else
 				this.FileNameToStatist = FileNameToStatist;
+
 			this.FileNameToSave = FileNameToSave;
 
 			MainField = new Field(60,DinamicChoiseBool);
 
 			Count = 0;
-
-			WorkBot = new MoveTo();
-
+			
 			this.NumberBot = NumberBot;
-
-			SetBotMain(MainField, this.NumberBot,ReadBrain());
+			MeanDead = new Bot(MainField, 0, 0, 100, 100, 40, -50, 50, ReadBrain(), CoofTraining);
+			SetBotMain(MainField, this.NumberBot, MeanDead);
 
 			Directory.CreateDirectory("Statist");
 
@@ -75,26 +82,31 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 					Bot Object = (Bot)MainField.ListBot[ HashName[ i ] ];
 					if (Object != null) {
 						Object.ENERGY -= 10;
-						if (!( Object.TempRange.MaxTemp >= MainField[ (int)Object.IG, (int)Object.JG ].PLACE_TEMP && Object.TempRange.MinTemp <= MainField[ (int)Object.IG, (int)Object.JG ].PLACE_TEMP )) {
-							Object.ENERGY -= 5;
+						
+						if (!( Object.TEMP_RANGE.MaxTemp >= MainField[ (int)Object.IG, (int)Object.JG ].PLACE_TEMP && Object.TEMP_RANGE.MinTemp <= MainField[ (int)Object.IG, (int)Object.JG ].PLACE_TEMP )) {
+							Object.ENERGY -= 3;
 							Object.HP_GET -= 1;
 						}
+						
 						if (Object.ENERGY <= 0)
 							Object.HP_GET += 3 * Object.ENERGY / 2;
-							if (Object.HP_GET <= 0) {
-
-								MainField.ClearBot((int)Object.IG, (int)Object.JG);
+						if (HashName.Length == NumberBot) {
+							MeanDead = (Bot)Object.Clone();
+						}
+						if (Object.HP_GET <= 0) { 
+							MainField.ClearBot((int)Object.IG, (int)Object.JG);
 							MainField.ListBot.Remove(HashName[ i ]);
 							if (MainField.ListBot.Count == 0) {
-								SetBotMain(MainField, NumberBot, Object.BRAIN);
-								SetBotMain(MainField, 2, null);
+								SetBotMain(MainField, NumberBot / 2, Object);
+								SetBotMain(MainField, NumberBot / 2, MeanDead);
 							}
 							if(StatistChoiseBool && HashName.Length == 1)
 								GetDeadBot(Object);
+							Console.WriteLine(Object.HASH_NAME + ": Удален из мира");
 							Object = null;
 						}
 						else {
-							WorkBot.Move(WorkBot.LookAround(Object.JG, Object.IG, MainField), Object, MainField);
+							Object.Move();
 						}
 					}
 				}
@@ -106,13 +118,13 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 		/// <param name="MainLink"></param>
 		/// <param name="count"></param>
 		/// <param name="Brain"></param>
-		private void SetBotMain(Field MainLink, int count,NeuralNetwork Brain = null) {
+		private void SetBotMain(Field MainLink, int count,Bot BaseBot) {
 			Random ForBotPlace = new Random();
 			for (int k = 0,g = 0 ; k < count;g++) {
 				int i = ForBotPlace.Next(0, MainField.N);
 				int j = ForBotPlace.Next(0, MainField.N);
 				if (MainLink.CheckPlaceBot(i, j, out bool Index) == false && Index == false) {
-					new Bot(MainLink, i, j, 100, 100, 40, -50, 50, 100, Brain);
+					new Bot(MainLink, i, j, 100, 1000, (sbyte)( BaseBot.TEMP_RANGE.MaxTemp + ForBotPlace.Next(-3, 3) ), (sbyte)( BaseBot.TEMP_RANGE.MinTemp + ForBotPlace.Next(-3, 3) ), BaseBot.DamageThis + ForBotPlace.Next(-3, 3), BaseBot.BRAIN);
 					k++;
 				}
 				if (g > 1000000)
@@ -120,6 +132,9 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 			}
 		}
 		#region Свойства для чтения
+		/// <summary>
+		/// Доступ к файлу сохранения нейросети
+		/// </summary>
 		public string FILE_NAME_TO_SAVE{
 			get {
 				return FileNameToSave;
@@ -128,7 +143,9 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 				FileNameToSave = value;
 			}
 		}
-		
+		/// <summary>
+		/// Чтение числа просчетов в программы
+		/// </summary>
 		public int COUNT {
 			get {
 				return Count;
@@ -138,12 +155,12 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 		/// <summary>
 		/// Убийство бота в конкретной клетки
 		/// </summary>
-		/// <param name="bot"></param>
+		/// <param name="bot">Ссылка на объект</param>
 		/// <returns></returns>
 		private bool GetDeadBot(Bot bot) {
 			try {
 				StreamWriter Flow = new StreamWriter(FileNameToStatist,true);
-				Flow.WriteLine(bot.HashName + "|" + bot.Info.Eat + "|" + bot.Info.Move + "|" + bot.Info.Kill + "|" + bot.Info.Generation + "|" + bot.OldChet + "|" + bot.ENERGY + ".");
+				Flow.WriteLine(bot.HASH_NAME + "|" + bot.Info.Eat + "|" + bot.Info.Move + "|" + bot.Info.Kill + "|" + bot.Info.Generation + "|" + bot.OLD_CHET + "|" + bot.ENERGY + ".");
 				Flow.Close();
 				return true;
 			}
@@ -155,7 +172,7 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 		/// <summary>
 		/// Сохранить бота в файл статистики
 		/// </summary>
-		/// <param name="bot"></param>
+		/// <param name="bot">Ссылка на объект</param>
 		/// <returns></returns>
 		public  bool SaveBrain(Bot bot) {
 			try {
@@ -200,7 +217,6 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 		/// <summary>
 		/// Чтение из файла нейросети
 		/// </summary>
-		/// <returns></returns>
 		private NeuralNetwork ReadBrain() {
 			try {
 				if (FileNameToSave == "Название файла" || FileNameToSave == null)
@@ -240,6 +256,14 @@ namespace LifeSimulation_ConsoleVersion.LifeSimulation {
 			catch(Exception error) {
 				MessageBox.Show("Чтение файла не удалось " + error.Message,"Ошибка");
 				return null;
+			}
+		}
+		///<summary>
+		/// Чтение объекта поле
+		/// </summary>
+		public Field MAIN_FIELD {
+			get {
+				return MainField;
 			}
 		}
 	}

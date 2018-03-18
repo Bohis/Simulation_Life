@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using LifeSimulation.Present;
 
-namespace VisualSimulationLife {
+namespace LifeSimulation.Visual{
 	/// <summary>
 	/// Работа с меню до работы симуляции
 	/// </summary>
@@ -10,7 +11,7 @@ namespace VisualSimulationLife {
 		/// <summary>
 		/// Структура для передачи данных
 		/// </summary>
-		public OutFirstForm OutData;
+		OutFirstForm OutData;
 		/// <summary>
 		/// Конструктор с ссылкой для передачи данных
 		/// </summary>
@@ -113,5 +114,13 @@ namespace VisualSimulationLife {
 			;
 		}
 		#endregion
+		/// <summary>
+		/// Чтение данных полученных от пользователя
+		/// </summary>
+		public OutFirstForm OUT_DATA {
+			get {
+				return OutData;
+			}
+		}
 	}
 }
