@@ -84,7 +84,7 @@ namespace LifeSimulation.Model.ElBot{
 			TempRange.MinTemp = MinTemp;
 			Link = link;
 			Random ForName = new Random();
-			HashName = ((DateTime.Today.ToString() + ForName.Next(0,10000).ToString()).ToCharArray()).GetHashCode().ToString();
+			HashName = ((DateTime.Today.Millisecond.ToString() + ForName.Next(-500,499).ToString()).ToCharArray()).GetHashCode().ToString() + ((char)ForName.Next(97,122)).ToString();
 			if (TriggerClone == false) {
 				Link.ListBot.Add(HashName, this);
 				Link.SetBot(this, (int)IG, (int)JG);
@@ -313,7 +313,7 @@ namespace LifeSimulation.Model.ElBot{
 				Link.ClearBot((int)IG, (int)JG, false);
 				IG--;
 				Info.Move++;
-				Console.WriteLine("{0,8}: Совершил движение вверх", HashName);
+				Console.WriteLine("{0,10}: Совершил движение вверх", HashName);
 
 			}
 			catch {
@@ -328,7 +328,7 @@ namespace LifeSimulation.Model.ElBot{
 				Link.ClearBot((int)IG, (int)JG, false);
 				JG--;
 				Info.Move++;
-				Console.WriteLine("{0,8}: Совершил движение влево", HashName);
+				Console.WriteLine("{0,10}: Совершил движение влево", HashName);
 			}
 			catch {
 			}
@@ -342,7 +342,7 @@ namespace LifeSimulation.Model.ElBot{
 				Link.ClearBot((int)IG, (int)JG, false);
 				IG++;
 				Info.Move++;
-				Console.WriteLine("{0,8}: Совершил движение вниз", HashName);
+				Console.WriteLine("{0,10}: Совершил движение вниз", HashName);
 
 			}
 			catch {
@@ -357,7 +357,7 @@ namespace LifeSimulation.Model.ElBot{
 				Link.ClearBot((int)IG, (int)JG, false);
 				JG++;
 				Info.Move++;
-				Console.WriteLine("{0,8}: Совершил движение вправо", HashName);
+				Console.WriteLine("{0,10}: Совершил движение вправо", HashName);
 			}
 			catch {
 			}
@@ -371,7 +371,7 @@ namespace LifeSimulation.Model.ElBot{
 				ENERGY += 50;
 				Info.Eat++;
 				Link[ (int)IG, (int)JG ].CHANGES = true;
-				Console.WriteLine("{0,8}: Совершил движение поедание органики", HashName);
+				Console.WriteLine("{0,10}: Совершил движение поедание органики", HashName);
 			}
 			catch {
 			}
@@ -383,7 +383,7 @@ namespace LifeSimulation.Model.ElBot{
 			try {
 				ENERGY += (int)( Link[ (int)IG, (int)JG ].PLACE_LIGHT * 0.3 );
 				Info.Eat++;
-				Console.WriteLine("{0,8}: Совершил движение фотосинтез", HashName);
+				Console.WriteLine("{0,10}: Совершил движение фотосинтез", HashName);
 			}
 			catch {
 			}
@@ -398,7 +398,7 @@ namespace LifeSimulation.Model.ElBot{
 					MisingHp = ( MisingHp - ENERGY ) - 10;
 				ENERGY -= MisingHp;
 				HP_GET += ( MisingHp / 2 );
-				Console.WriteLine("{0,8}: Совершил движение лечение", HashName);
+				Console.WriteLine("{0,10}: Совершил движение лечение", HashName);
 			}
 			catch {
 			}
@@ -432,7 +432,7 @@ namespace LifeSimulation.Model.ElBot{
 					ENERGY -= 150;
 					Info.Generation++;
 				}
-				Console.WriteLine("{0,8}: Совершил движение размножение", HashName);
+				Console.WriteLine("{0,10}: Совершил движение размножение", HashName);
 			}
 			catch {
 			}
@@ -448,7 +448,7 @@ namespace LifeSimulation.Model.ElBot{
 				goto Break;
 			}
 			else
-				if (StringMove.Split('|')[ 9 ] == "1") {
+				if (StringMove.Split('|')[ 10 ] == "1") {
 				Modi = 0;
 				Modj = -1;
 				goto Break;
@@ -481,7 +481,7 @@ namespace LifeSimulation.Model.ElBot{
 				HP_GET += Enemy.HP_GET / 2;
 				ENERGY += Enemy.ENERGY / 2;
 				Info.Kill++;
-				Console.WriteLine("{0,8}: Совершил движение убийство", HashName);
+				Console.WriteLine("{0,10}: Совершил движение убийство", HashName);
 
 				return;
 			}
@@ -491,7 +491,7 @@ namespace LifeSimulation.Model.ElBot{
 				Enemy.HP_GET += HP_GET / 2;
 				Enemy.ENERGY += ENERGY / 2;
 				Enemy.Info.Kill++;
-				Console.WriteLine("{0,8}: Совершил движение был убит", HashName);
+				Console.WriteLine("{0,10}: Совершил движение был убит", HashName);
 				return;
 			}
 		}
@@ -515,7 +515,7 @@ namespace LifeSimulation.Model.ElBot{
 				TimeHashStr += "0|";
 			int Binchoise = 0;
 			TimeHashStr = BRAIN.WorkNet(TimeHashStr);
-			Console.WriteLine("{0,8}: Обработаная информация из нейросети {1,8}", HashName, TimeHashStr);
+			Console.WriteLine("{0,10}: Обработаная информация из нейросети {1,9}", HashName, TimeHashStr);
 			for (int i = 3; i >= 0; i--)
 				Binchoise += int.Parse(TimeHashStr.Split('|')[ i ]) * (int)Math.Pow(2, 3 - i);
 			switch (Binchoise) {
@@ -585,7 +585,7 @@ namespace LifeSimulation.Model.ElBot{
 						break;
 					}
 				default: {
-						Console.WriteLine("{0,8}: Бездействие", HashName);
+						Console.WriteLine("{0,10}: Бездействие", HashName);
 						break;
 					}
 			}

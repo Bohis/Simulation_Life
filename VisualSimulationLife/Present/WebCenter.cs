@@ -99,10 +99,11 @@ namespace LifeSimulation.Present {
 							if (MainField.ListBot.Count == 0) {
 								SetBotMain(MainField, NumberBot / 2, Object);
 								SetBotMain(MainField, NumberBot / 2, MeanDead);
+								SetBotMain(MainField,2,new Bot(MainField,0,0,100,1000,50,-50,60,null,Object.BRAIN.TRAING_COOF,true));
 							}
 							if(StatistChoiseBool && HashName.Length == 1)
 								GetDeadBot(Object);
-							Console.WriteLine(Object.HASH_NAME + ": Удален из мира");
+							Console.WriteLine("{0,10}: Удален из мира", Object.HASH_NAME);
 							Object = null;
 						}
 						else {
@@ -153,7 +154,7 @@ namespace LifeSimulation.Present {
 		}
 		#endregion
 		/// <summary>
-		/// Убийство бота в конкретной клетки
+		/// Сохранение информации о убитом боте
 		/// </summary>
 		/// <param name="bot">Ссылка на объект</param>
 		/// <returns></returns>
@@ -170,7 +171,7 @@ namespace LifeSimulation.Present {
 			}
 		}
 		/// <summary>
-		/// Сохранить бота в файл статистики
+		/// Сохранить нейросеть в файл
 		/// </summary>
 		/// <param name="bot">Ссылка на объект</param>
 		/// <returns></returns>
@@ -205,6 +206,7 @@ namespace LifeSimulation.Present {
 				for (int i = 0; i < Array.GetLength(0); i++)
 					for (int j = 0; j < Array.GetLength(1); j++)
 						Save.WriteLine(Array[ i, j ]);
+				Save.WriteLine(Count);
 				Save.Close();
 				MessageBox.Show("Снимок нейросети сохранен", "Сообщение");
 				return true;
@@ -249,6 +251,7 @@ namespace LifeSimulation.Present {
 				for (int i = 0; i < N; i++)
 					for (int j = 0; j < M; j++)
 						Array4[ i, j ] = double.Parse(Read.ReadLine());
+				Count = int.Parse(Read.ReadLine());
 				Read.Close();
 				MessageBox.Show("Чтение файла удалось", "Информация");
 				return new NeuralNetwork(Coof, Array1, Array2, Array3, Array4);

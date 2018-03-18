@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LifeSimulation.Model.NeiralNet {
+﻿namespace LifeSimulation.Model.NeiralNet {
 	/// <summary>
 	/// Класс входного слоя нейросети
 	/// </summary>

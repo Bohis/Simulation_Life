@@ -36,10 +36,10 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = ( (System.Drawing.Image)( resources.GetObject("$this.BackgroundImage") ) );
-			this.ClientSize = new System.Drawing.Size(1700, 500);
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.ClientSize = new System.Drawing.Size(915, 343);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Icon = ( (System.Drawing.Icon)( resources.GetObject("$this.Icon") ) );
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "StartScreen";
 			this.Opacity = 0D;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
