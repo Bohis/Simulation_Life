@@ -6,7 +6,7 @@
 		///<sumarry>
 		/// Матрица весов компонента
 		///</sumarry>
-		public double[,] Matrix;
+		protected double[,] Matrix;
 		///<summary>
 		/// Размеры матрицы
 		///</summary>
@@ -15,17 +15,17 @@
 		/// Чтение кол-ва строк
 		///</summary>
 		public int N {
-			get {
-				return n;
-			}
+			get => n;
 		}
 		///<summary>
 		/// Чтение кол-ва столбов
 		///</summary>
 		public int M {
-			get {
-				return m;
-			}
+			get => m;
+		}
+		public double[,] MATRIX {
+			get => Matrix;
+			set => Matrix = value;
 		}
 	}
 }

@@ -14,11 +14,11 @@ namespace LifeSimulation.Model.FieldName{
         /// <summary>
         /// Хеш таблица для хранения ботов
         /// </summary>
-		public Hashtable ListBot;
+		Hashtable ListBot;
         /// <summary>
         /// Размер квадратного поля
         /// </summary>
-		public int N;
+		int N;
 		/// <summary>
 		/// Коструктор класса Field
 		/// </summary>
@@ -150,6 +150,15 @@ namespace LifeSimulation.Model.FieldName{
 			}
 			Index = true;
 			return false;
+		}
+		public Hashtable LIST_BOT {
+			get => ListBot;
+		}
+		/// <summary>
+		/// Размер матрицы N*N
+		/// </summary>
+		public int N_SIZE {
+			get => N;
 		}
 	}
 }

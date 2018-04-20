@@ -14,9 +14,9 @@ namespace LifeSimulation.Visual{
 			InitializeComponent();
 			this.DoubleBuffered = true;
 			Size SizeForm = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
-			if (SizeForm.Height <= 500)
+			if (SizeForm.Height <= 350)
 				this.Height = SizeForm.Height - 50;
-			if (SizeForm.Width <= 1700)
+			if (SizeForm.Width <= 950)
 				this.Width = SizeForm.Width - 50;
 			TopLevel = true;
 			TopMost = true;

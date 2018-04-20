@@ -74,12 +74,12 @@ namespace LifeSimulation.Present {
 		/// <param name="StatistChoiseBool"></param>
 		public void WorkProject(bool StatistChoiseBool = false) {
 			Count++;
-			ICollection keys = MainField.LIST_BOT.Keys;
+			ICollection keys = MainField.ListBot.Keys;
 			string[] HashName = new string[ keys.Count ];
 			keys.CopyTo(HashName, 0);
 			if (HashName.Length >= 1) {
 				for (int i = 0; i < HashName.Length; i++) {
-					Bot Object = (Bot)MainField.LIST_BOT[ HashName[ i ] ];
+					Bot Object = (Bot)MainField.ListBot[ HashName[ i ] ];
 					if (Object != null) {
 						Object.ENERGY -= 10;
 						
@@ -95,13 +95,13 @@ namespace LifeSimulation.Present {
 						}
 						if (Object.HP_GET <= 0) { 
 							MainField.ClearBot((int)Object.IG, (int)Object.JG);
-							MainField.LIST_BOT.Remove(HashName[ i ]);
 							if(StatistChoiseBool && HashName.Length == 1)
 								GetDeadBot(Object);
-							if (MainField.LIST_BOT.Count == 0) {
+							MainField.ListBot.Remove(HashName[ i ]);
+							if (MainField.ListBot.Count == 0) {
 								SetBotMain(MainField, NumberBot / 2, Object);
 								SetBotMain(MainField, NumberBot / 2, MeanDead);
-								SetBotMain(MainField,2, (Bot)Object.Clone());
+								SetBotMain(MainField,2,new Bot(MainField,0,0,100 , 300 , 50,-50,60,null,Object.BRAIN.TRAING_COOF,true));
 							}
 							Console.WriteLine("{0,10}: Удален из мира", Object.HASH_NAME);
 							Object = null;
@@ -114,7 +114,7 @@ namespace LifeSimulation.Present {
 			}
 		}
 		/// <summary>
-		/// Установка бота в клетку с возможностьб наследования
+		/// Установка бота в клетку с возможностью наследования
 		/// </summary>
 		/// <param name="MainLink"></param>
 		/// <param name="count"></param>
@@ -122,10 +122,10 @@ namespace LifeSimulation.Present {
 		private void SetBotMain(Field MainLink, int count,Bot BaseBot) {
 			Random ForBotPlace = new Random();
 			for (int k = 0,g = 0 ; k < count;g++) {
-				int i = ForBotPlace.Next(0, MainField.N_SIZE);
-				int j = ForBotPlace.Next(0, MainField.N_SIZE);
+				int i = ForBotPlace.Next(0, MainField.N);
+				int j = ForBotPlace.Next(0, MainField.N);
 				if (MainLink.CheckPlaceBot(i, j, out bool Index) == false && Index == false) {
-					new Bot(MainLink, i, j, 100, 300, (sbyte)( BaseBot.TEMP_RANGE.MaxTemp + ForBotPlace.Next(-3, 3) ), (sbyte)( BaseBot.TEMP_RANGE.MinTemp + ForBotPlace.Next(-3, 3) ), BaseBot.DamageThis + ForBotPlace.Next(-3, 3), BaseBot.BRAIN);
+					new Bot(MainLink, i, j, 100, 1000, (sbyte)( BaseBot.TEMP_RANGE.MaxTemp + ForBotPlace.Next(-3, 3) ), (sbyte)( BaseBot.TEMP_RANGE.MinTemp + ForBotPlace.Next(-3, 3) ), BaseBot.DamageThis + ForBotPlace.Next(-3, 3), BaseBot.BRAIN);
 					k++;
 				}
 				if (g > 1000000)
@@ -161,7 +161,7 @@ namespace LifeSimulation.Present {
 		private bool GetDeadBot(Bot bot) {
 			try {
 				StreamWriter Flow = new StreamWriter(FileNameToStatist,true);
-				Flow.WriteLine(bot.HASH_NAME + "|" + bot.INFO.Eat + "|" + bot.INFO.Move + "|" + bot.INFO.Kill + "|" + bot.INFO.Generation + "|" + bot.OLD_CHET + "|" + bot.ENERGY + ".");
+				Flow.WriteLine(bot.HASH_NAME + "|" + bot.Info.Eat + "|" + bot.Info.Move + "|" + bot.Info.Kill + "|" + bot.Info.Generation + "|" + bot.OLD_CHET + "|" + bot.ENERGY + ".");
 				Flow.Close();
 				return true;
 			}
@@ -265,7 +265,9 @@ namespace LifeSimulation.Present {
 		/// Чтение объекта поле
 		/// </summary>
 		public Field MAIN_FIELD {
-			get =>MainField;
+			get {
+				return MainField;
+			}
 		}
 	}
 }

@@ -42,9 +42,7 @@ namespace LifeSimulation.Present {
 		/// Получить значение открытого окна
 		/// </summary>
 		public bool SHOW {
-			get {
-				return Show;
-			}
+			get => Show;
 		}
 	}
 }

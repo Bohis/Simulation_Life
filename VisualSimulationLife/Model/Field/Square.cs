@@ -42,31 +42,21 @@ namespace LifeSimulation.Model{
 		/// Свойсто для доступа к полю бота
 		/// </summary>
 		public Bot PLACE_BOT {
-			get {
-				return PlaceBot;
-			}
-			set {
-				PlaceBot = value;
-			}
+			get =>PlaceBot;
+			set =>PlaceBot = value;
 		}
 		/// <summary>
 		/// Свойсто для доступа к полю органики
 		/// </summary>
 		public bool PLACE_ORGANIC_MATTER {
-			get {
-				return PlaceOrganicMatter;
-			}
-			set {
-				PlaceOrganicMatter = (bool)value;
-			}
+			get => PlaceOrganicMatter;
+			set =>PlaceOrganicMatter = (bool)value;
 		}
 		/// <summary>
 		/// Свойсто для доступа к полю освещенности
 		/// </summary>
 		public byte PLACE_LIGHT {
-			get {
-				return PlaceLight;
-			}
+			get => PlaceLight;
 			set {
 				if (value > 100)
 					PlaceLight = 100;
@@ -81,9 +71,7 @@ namespace LifeSimulation.Model{
 		/// Свойсто для доступа к полю температуры
 		/// </summary>
 		public sbyte PLACE_TEMP {
-			get {
-				return PlaceTemp;
-			}
+			get => PlaceTemp;
 			set {
 				try {
 					PlaceTemp = checked((sbyte)value);
@@ -107,13 +95,9 @@ namespace LifeSimulation.Model{
 		/// <summary>
 		/// Доступ к полю изменений для отрисовки
 		/// </summary>
-		public bool CHANGES{
-			get {
-				return changes;
-			}
-			set {
-				changes = value;
-			}
+		public bool CHANGES {
+			get => changes;
+			set => changes = value;
 		}
 	}
 }

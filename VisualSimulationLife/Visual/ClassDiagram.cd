@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LifeSimulation.Model.ElBot.Bot" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFARkCAAMgKCAAAAkhMQgAARAAAAQAIQAAAREAIABA=</HashCode>
+      <FileName>Model\ElBot\Bot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LifeSimulation.Model.FieldName.Field">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAQAAAAAAAAAAACAAAQACAIAAAAQAAACgAABCAAAA=</HashCode>
+      <FileName>Model\Field\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.Square">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAwAQAAAAAAKAAAAIYAAACAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Model\Field\Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.NeuralComponets">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAgAAAAEgAAABIAAAA=</HashCode>
+      <FileName>Model\NeiralNet\AbstractNeuralComponets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.Function">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAABA=</HashCode>
+      <FileName>Model\NeiralNet\Function.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.HiddenLayer">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NeiralNet\HiddenLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.InputLayer">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NeiralNet\InputLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.Matrix">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NeiralNet\Matrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.NeuralNetwork">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAAAAAAAQQQAATAAAAIAIACAABAAAAAAABAAAQA=</HashCode>
+      <FileName>Model\NeiralNet\NeuralNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.OutputLayer">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NeiralNet\OutputLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Model.NeiralNet.SynapseLayer">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NeiralNet\SynapseLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Present.ConsoleDebugging">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAQAEAAEAAAAAAACAABgEAA=</HashCode>
+      <FileName>Present\ConsoleDebugging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Present.Program">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Present\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Present.WebCenter">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAIAAAAACAAAAAAAAAAAQAAEAIAIAgAAIAAEIiAAA=</HashCode>
+      <FileName>Present\WebCenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Visual.MainForm" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAgEYMwCuAEREpEwzQUIgCQBAMgNBAkAgIQxCOADA=</HashCode>
+      <FileName>Visual\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Visual.MenuForm" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEADQAACMCABAgAAyAgACCAYhIAAAAAAAEAAlgQAA=</HashCode>
+      <FileName>Visual\MenuForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeSimulation.Visual.StartScreen" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAABAAACAAAADAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Visual\StartScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="LifeSimulation.Model.ElBot.Temp">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ElBot\Bot.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LifeSimulation.Model.ElBot.Statistic">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\ElBot\Bot.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LifeSimulation.Present.OutFirstForm">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAA=</HashCode>
+      <FileName>Present\Program.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

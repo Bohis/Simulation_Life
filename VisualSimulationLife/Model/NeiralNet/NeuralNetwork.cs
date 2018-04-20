@@ -103,13 +103,13 @@
 		///</sumarry> 		
 		public string WorkNet(string HashStr) {
 			First.InputDate(HashStr);
-			Second.Matrix = Matrix.Multiplication(First.Matrix, SFirst.Matrix);
+			Second.MATRIX = Matrix.Multiplication(First.MATRIX, SFirst.MATRIX);
 			Second.Formalize();
-			Third.Matrix = Matrix.Multiplication(Second.Matrix, SSecond.Matrix);
+			Third.MATRIX = Matrix.Multiplication(Second.MATRIX, SSecond.MATRIX);
 			Third.Formalize();
-			Forth.Matrix = Matrix.Multiplication(Third.Matrix, SThird.Matrix);
+			Forth.MATRIX = Matrix.Multiplication(Third.MATRIX, SThird.MATRIX);
 			Forth.Formalize();
-			Fifth.Matrix = Matrix.Multiplication(Forth.Matrix, SFourth.Matrix);
+			Fifth.MATRIX = Matrix.Multiplication(Forth.MATRIX, SFourth.MATRIX);
 			Fifth.Formalize();
 			return Fifth.OutputDate();
 		}
@@ -117,41 +117,31 @@
 		///Коофициент обучения
 		///</sumarry>
 		public int TRAING_COOF {
-			get {
-				return TrainigCoof;
-			}
+			get =>TrainigCoof;
 		}
 		///<sumarry>
 		///Свойства для наследования
 		///</sumarry>
 		public double[,] S_FIRST {
-			get {
-				return SFirst.Matrix;
-			}
+			get =>SFirst.MATRIX;
 		}
 		///<sumarry>
 		///Свойства для наследования
 		///</sumarry>
 		public double[,] S_CECOND {
-			get {
-				return SSecond.Matrix;
-			}
+			get =>SSecond.MATRIX;
 		}
 		///<sumarry>
 		///Свойства для наследования
 		///</sumarry>
 		public double[,] S_THIRD {
-			get {
-				return SThird.Matrix;
-			}
+			get =>SThird.MATRIX;
 		}
 		///<sumarry>
 		///Свойства для наследования
 		///</sumarry>
 		public double[,] S_FORTH {
-			get {
-				return SFourth.Matrix;
-			}
+			get => SFourth.MATRIX;
 		}
 	}
 }

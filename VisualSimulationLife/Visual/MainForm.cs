@@ -91,8 +91,8 @@ namespace LifeSimulation.Visual {
 		/// Перерисовка главного поля
 		/// </summary>
 		private void DrawFieldOne() {
-			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
-				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N_SIZE; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N_SIZE; j++) {
 					if (MainBloc.MAIN_FIELD[ j, i ].CHANGES == true) {
 						if (MainBloc.MAIN_FIELD[ j, i ].CheckBotPlace) 
 							BoxOne(i, j, GreenBrush);
@@ -161,8 +161,8 @@ namespace LifeSimulation.Visual {
 		/// Рисовка границ 
 		/// </summary>
 		private void DrawFieldTwo() {
-			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
-				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N_SIZE; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N_SIZE; j++) {
 					BoxTwo(i, j, new SolidBrush(ColorForLight(MainBloc.MAIN_FIELD[ j, i ].PLACE_LIGHT)));
 				}
 		}
@@ -170,8 +170,8 @@ namespace LifeSimulation.Visual {
 		/// Рисовка границ 
 		/// </summary>
 		private void DrawFieldTherd() {
-			for (int i = 0; i < MainBloc.MAIN_FIELD.N; i++)
-				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+			for (int i = 0; i < MainBloc.MAIN_FIELD.N_SIZE; i++)
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N_SIZE; j++) {
 					BoxTherd(i, j, new SolidBrush(ColorForCold(MainBloc.MAIN_FIELD[ j, i ].PLACE_TEMP)));
 				}
 		}
@@ -302,8 +302,8 @@ namespace LifeSimulation.Visual {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LeaveSave_Click(object sender, EventArgs e) {
-			for (int i = 0;i< MainBloc.MAIN_FIELD.N;i++) {
-				for (int j = 0; j < MainBloc.MAIN_FIELD.N; j++) {
+			for (int i = 0;i< MainBloc.MAIN_FIELD.N_SIZE;i++) {
+				for (int j = 0; j < MainBloc.MAIN_FIELD.N_SIZE; j++) {
 					if (MainBloc.MAIN_FIELD[ i, j ].CheckBotPlace) {
 						MainBloc.SaveBrain(MainBloc.MAIN_FIELD[ i, j ].PLACE_BOT);
 						return;
